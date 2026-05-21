@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KI-Video im Gesundheitswesen – Leadway × Synthesia Webinar</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a2e;
+      background: #fff;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid #e8eaf0;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0d1b4b;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 20px;
+      background: #dde4f5;
+    }
+
+    .nav-partner {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    .partner-badge {
+      background: #0d4edc;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #444;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: #0d4edc; }
+
+    .btn-primary {
+      background: #0d4edc;
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: #0a3fb5; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 60%, #dce8ff 100%);
+      padding: 64px 40px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 48px;
+      align-items: center;
+      min-height: 420px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid #c7d5f5;
+      color: #0d4edc;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #0d1b4b;
+      margin-bottom: 16px;
+      max-width: 560px;
+    }
+
+    .hero-desc {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 22px;
+      max-width: 500px;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1px solid #dde4f5;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      color: #444;
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      color: #0d4edc;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-secondary:hover { text-decoration: underline; }
+
+    /* ── HERO VIDEO (right side, small) ── */
+    .hero-video-side {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-video-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-video-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0d1b4b;
+      margin-bottom: 4px;
+    }
+
+    .video-embed-container {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(13,78,220,0.18);
+      background: #000;
+      line-height: 0;
+    }
+
+    .video-embed-container iframe {
+      display: block;
+      width: 100%;
+      height: 236px;
+      border: none;
+    }
+
+    .video-caption {
+      font-size: 11px;
+      color: #aaa;
+      text-align: center;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 64px 40px; }
+
+    .section-title {
+      text-align: center;
+      font-size: 26px;
+      font-weight: 800;
+      color: #0d1b4b;
+      margin-bottom: 40px;
+    }
+
+    /* ── WHY SECTION ── */
+    .why-section { background: #f7f9ff; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .why-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+      border: 1px solid #e8eef8;
+    }
+
+    .why-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      font-size: 20px;
+    }
+
+    .icon-yellow { background: #fff3cd; }
+    .icon-blue   { background: #dce8ff; }
+    .icon-teal   { background: #d0f0ea; }
+    .icon-purple { background: #ede5ff; }
+
+    .why-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0d1b4b;
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* ── SPEAKERS ── */
+    .speakers-section { background: #fff; }
+
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .speaker-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .speaker-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .speaker-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #dde4f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: #7a96cc;
+      border: 3px solid #e8f0fe;
+    }
+
+    .speaker-info h3 { font-size: 15px; font-weight: 700; color: #0d1b4b; }
+    .speaker-info .company { font-size: 13px; font-weight: 600; color: #0d4edc; margin-top: 2px; }
+
+    .speaker-desc { font-size: 13px; color: #555; line-height: 1.5; }
+
+    .linkedin-icon {
+      width: 26px;
+      height: 26px;
+      background: #0077b5;
+      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ── LOGOS ── */
+    .logos-section {
+      padding: 36px 40px;
+      background: #fafbff;
+      border-top: 1px solid #eef0f8;
+      border-bottom: 1px solid #eef0f8;
+      text-align: center;
+    }
+
+    .logos-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 20px;
+    }
+
+    .logos-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .logo-pill {
+      background: #fff;
+      border: 1px solid #e0e8ff;
+      border-radius: 6px;
+      padding: 8px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #555;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── BOTTOM 3-COL ── */
+    .bottom-section {
+      background: #f7f9ff;
+      padding: 64px 40px;
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap: 48px;
+      max-width: 1040px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .agenda h2, .audience h2 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #0d1b4b;
+      margin-bottom: 20px;
+    }
+
+    .agenda-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .step-num {
+      background: #0d4edc;
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .agenda-item p { font-size: 13px; color: #333; line-height: 1.5; }
+
+    .audience-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .audience-icon {
+      width: 32px;
+      height: 32px;
+      background: #e8f0fe;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ── FAQ ── */
+    details {
+      border: 1px solid #e0e6f5;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      background: #fff;
+    }
+
+    summary {
+      padding: 13px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 18px; color: #aaa; }
+    details[open] summary::after { content: '−'; }
+    details p { padding: 0 16px 14px; font-size: 13px; color: #555; line-height: 1.6; }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: #fff;
+      border: 1px solid #dde6f8;
+      border-radius: 14px;
+      padding: 28px 24px;
+      box-shadow: 0 6px 32px rgba(13,78,220,0.10);
+    }
+
+    .form-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .form-card-header h3 { font-size: 16px; font-weight: 800; color: #0d1b4b; }
+    .form-card-sub { font-size: 12px; color: #999; margin-bottom: 20px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+
+    .form-input {
+      width: 100%;
+      border: 1px solid #dde4f5;
+      border-radius: 6px;
+      padding: 9px 12px;
+      font-size: 13px;
+      color: #333;
+      outline: none;
+      transition: border-color .2s;
+      font-family: inherit;
+      background: #fafbff;
+    }
+    .form-input:focus { border-color: #0d4edc; background: #fff; }
+
+    .form-select {
+      width: 100%;
+      border: 1px solid #dde4f5;
+      border-radius: 6px;
+      padding: 9px 12px;
+      font-size: 13px;
+      color: #888;
+      outline: none;
+      background: #fafbff;
+      cursor: pointer;
+      font-family: inherit;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin: 14px 0;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .checkbox-row input { margin-top: 2px; cursor: pointer; accent-color: #0d4edc; }
+    .checkbox-row a { color: #0d4edc; text-decoration: underline; }
+
+    .btn-submit {
+      width: 100%;
+      background: #0d4edc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-submit:hover { background: #0a3fb5; }
+
+    .form-note {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d1b4b;
+      color: #fff;
+      padding: 48px 40px 32px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 48px;
+      max-width: 860px;
+      margin: 0 auto 32px;
+      align-items: start;
+    }
+
+    .footer-brand .footer-logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: #8896bb;
+      line-height: 1.6;
+      max-width: 320px;
+      margin-bottom: 20px;
+    }
+
+    .footer-partner-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+      width: fit-content;
+    }
+
+    .footer-partner-row span {
+      font-size: 12px;
+      color: #8896bb;
+    }
+
+    .footer-partner-badge {
+      background: #fff;
+      color: #0d4edc;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .footer-contact h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: #8896bb;
+    }
+
+    .footer-contact-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #4a5a80;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-video-side { max-width: 420px; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .speakers-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .bottom-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo">leadway</div>
+    <div class="nav-divider"></div>
+    <div class="nav-partner">
+      <span>in Kooperation mit</span>
+      <span class="partner-badge">synthesia</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Webinar</a></li>
+    <li><a href="#">Speaker</a></li>
+    <li><a href="#">Anwendungsfälle</a></li>
+    <li><a href="#">Anmeldung</a></li>
+  </ul>
+  <button class="btn-primary">Jetzt anmelden</button>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Kostenloses Live-Webinar für Spitäler</div>
+    <h1>KI-Video im Gesundheitswesen: Wie Spitäler mit Synthesia Schulung, Kommunikation und Patienteninformation neu denken</h1>
+    <p class="hero-desc">Erfahren Sie, wie Krankenhäuser und Spitäler mit Synthesia professionelle Videos schneller erstellen, mehrsprachig ausrollen und komplexe Inhalte verständlich vermitteln – intern wie extern.</p>
+    <div class="hero-tags">
+      <span class="tag">🌐 Online</span>
+      <span class="tag">⏱ 30 Minuten</span>
+      <span class="tag">👥 Für Spitäler &amp; Gesundheitsorganisationen</span>
+    </div>
+    <div class="hero-cta">
+      <button class="btn-primary" style="padding:12px 28px; font-size:15px;">Jetzt kostenlos anmelden →</button>
+      <a href="#" class="btn-secondary">Programm ansehen ›</a>
+    </div>
+  </div>
+
+  <!-- Hero image right side -->
+  <div class="hero-video-side">
+    <div style="border-radius:14px; overflow:hidden; box-shadow:0 12px 40px rgba(13,78,220,0.18); line-height:0; position:relative;">
+      <img src="hero-image.jpg" alt="Kantonsspital Baden – KI-Video Beispiel"
+        style="width:100%; display:block; border-radius:14px;"
+        onerror="this.parentElement.style.background='linear-gradient(135deg,#1a3a8f,#0d4edc)'; this.parentElement.style.minHeight='260px'; this.style.display='none';" />
+      <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.55));padding:16px 18px 14px;border-radius:0 0 14px 14px;">
+        <div style="font-size:10px;color:rgba(255,255,255,0.7);font-weight:600;letter-spacing:0.3px;">Prof. Dr. med.</div>
+        <div style="font-size:15px;color:#fff;font-weight:700;">Antonio Nocito</div>
+      </div>
+    </div>
+    <p class="video-caption" style="margin-top:8px;">Kantonsspital Baden – Wichtige Informationen zu Ihrer Operation</p>
+  </div>
+</div>
+
+<!-- ── WHY ── -->
+<section class="why-section">
+  <h2 class="section-title">Warum dieses Webinar relevant ist</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon icon-yellow">⚡</div>
+      <h3>Schulungen schneller aktualisieren</h3>
+      <p>Pflichtschulungen, SOPs und Prozessänderungen effizient als Video aufbereiten.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon icon-blue">🌐</div>
+      <h3>Mehrsprachige Kommunikation</h3>
+      <p>Inhalte einfach in mehreren Sprachen bereitstellen.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon icon-teal">➕</div>
+      <h3>Patienten verständlich informieren</h3>
+      <p>Komplexe Informationen klar und visuell erklären.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon icon-purple">👤</div>
+      <h3>Weniger Aufwand für Teams</h3>
+      <p>Videoerstellung ohne Filmteam, Studio oder lange Produktionszyklen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SPEAKERS ── -->
+<section class="speakers-section">
+  <h2 class="section-title">Ihre Referenten</h2>
+  <div class="speakers-grid">
+
+    <div class="speaker-card">
+      <div class="speaker-top">
+        <img src="benjamin.jpg" alt="Benjamin Kuster" class="speaker-avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="speaker-avatar" style="display:none;">👤</div>
+        <div class="speaker-info">
+          <h3>Benjamin Kuster</h3>
+          <div class="company">Leadway</div>
+        </div>
+      </div>
+      <p class="speaker-desc">Strategischer Partner bei der Digitalisierung &amp; KI in der Schweiz.</p>
+      <span class="linkedin-icon">in</span>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-top">
+        <img src="oliver.jpg" alt="Oliver Arber" class="speaker-avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="speaker-avatar" style="display:none;">👤</div>
+        <div class="speaker-info">
+          <h3>Oliver Arber</h3>
+          <div class="company">Synthesia</div>
+        </div>
+      </div>
+      <p class="speaker-desc">Einblicke in die Plattform, typische Use Cases und bewährte Einführungsansätze.</p>
+      <span class="linkedin-icon">in</span>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-top">
+        <img src="omar.jpg" alt="Omar Gisling" class="speaker-avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="speaker-avatar" style="display:none;">👤</div>
+        <div class="speaker-info">
+          <h3>Omar Gisling</h3>
+          <div class="company">Kantonsspital Baden</div>
+        </div>
+      </div>
+      <p class="speaker-desc">Praxisperspektive aus dem Spitalumfeld und Relevanz für Schweizer Organisationen.</p>
+      <span class="linkedin-icon">in</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── LOGOS ── -->
+<div class="logos-section">
+  <div class="logos-title">Organisationen, die bereits auf Synthesia setzen</div>
+  <div class="logos-row">
+    <span class="logo-pill">CHRISTUS Health</span>
+    <span class="logo-pill">MEDISTRAVA</span>
+    <span class="logo-pill">MERCK</span>
+    <span class="logo-pill">Insight Global</span>
+    <span class="logo-pill">BD Rowa</span>
+  </div>
+</div>
+
+<!-- ── BOTTOM 3-COL ── -->
+<div class="bottom-section">
+  <div class="bottom-grid">
+
+    <!-- Agenda -->
+    <div class="agenda">
+      <h2>Das erwartet Sie im Webinar</h2>
+      <div class="agenda-item"><span class="step-num">1</span><p>Warum KI-Video im Spitalumfeld an Relevanz gewinnt</p></div>
+      <div class="agenda-item"><span class="step-num">2</span><p>Fragen, Diskussion und nächste Schritte</p></div>
+    </div>
+
+    <!-- Audience + FAQ -->
+    <div>
+      <div class="audience">
+        <h2>Für wen ist das Webinar?</h2>
+        <div class="audience-item"><div class="audience-icon">💬</div>Kommunikation</div>
+        <div class="audience-item"><div class="audience-icon">👥</div>HR</div>
+        <div class="audience-item"><div class="audience-icon">📚</div>Learning &amp; Development</div>
+        <div class="audience-item"><div class="audience-icon">🏥</div>Spitalmanagement / Innovation</div>
+      </div>
+
+      <div style="margin-top:28px;">
+        <h2 style="font-size:17px;font-weight:800;color:#0d1b4b;margin-bottom:14px;">FAQ – Häufige Fragen</h2>
+        <details>
+          <summary>Ist das Webinar kostenlos?</summary>
+          <p>Ja, die Teilnahme ist vollständig kostenlos. Sie erhalten nach der Anmeldung alle Zugangsdaten per E-Mail.</p>
+        </details>
+        <details>
+          <summary>Ist das auch für Schweizer Spitäler relevant?</summary>
+          <p>Absolut. Das Webinar ist speziell auf die Anforderungen Schweizer Gesundheitsorganisationen ausgerichtet.</p>
+        </details>
+        <details>
+          <summary>Kann man konkrete Use Cases diskutieren?</summary>
+          <p>Ja, am Ende des Webinars gibt es eine offene Fragerunde für konkrete Use Cases.</p>
+        </details>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <span style="font-size:18px;">📅</span>
+        <h3>Live-Webinar</h3>
+      </div>
+      <p class="form-card-sub">Datum folgt – Jetzt anmelden!</p>
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Vorname" />
+        <input class="form-input" type="text" placeholder="Nachname" />
+      </div>
+      <input class="form-input" type="text" placeholder="Organisation" style="margin-bottom:10px;display:block;" />
+      <input class="form-input" type="email" placeholder="E-Mail" style="margin-bottom:10px;display:block;" />
+      <select class="form-select" style="margin-bottom:10px;display:block;">
+        <option value="" disabled selected>Funktion</option>
+        <option>Kommunikation</option>
+        <option>HR</option>
+        <option>Learning &amp; Development</option>
+        <option>Spitalmanagement / Innovation</option>
+        <option>Sonstiges</option>
+      </select>
+      <div class="checkbox-row">
+        <input type="checkbox" id="privacy" />
+        <label for="privacy">Ich akzeptiere die <a href="#">Datenschutzhinweise</a>.</label>
+      </div>
+      <button class="btn-submit">Jetzt kostenlos registrieren →</button>
+      <div class="form-note">
+        <span>🔒</span>
+        <span>Sie erhalten im Anschluss die Webinar-Informationen per E-Mail.</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">leadway</div>
+      <p class="footer-tagline">Leadway begleitet Schweizer Organisationen bei der Evaluation und Einführung von Synthesia. Wir sind Ihr strategischer Partner für Digitalisierung &amp; KI in der Schweiz.</p>
+      <div class="footer-partner-row">
+        <span>in Kooperation mit</span>
+        <span class="footer-partner-badge">synthesia</span>
+      </div>
+    </div>
+    <div class="footer-contact">
+      <h4>Fragen zum Webinar?</h4>
+      <div class="footer-contact-item">
+        <div class="footer-contact-icon">✉</div>
+        <span>webinar@leadway.ch</span>
+      </div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-icon">🌐</div>
+        <span>www.leadway.ch</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Leadway. In Kooperation mit Synthesia.
+  </div>
+</footer>
+
+</body>
+</html>
