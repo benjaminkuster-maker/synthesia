@@ -100,11 +100,15 @@
     .hero {
       background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 60%, #dce8ff 100%);
       padding: 64px 40px;
+    }
+
+    .hero-inner {
       display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 48px;
+      grid-template-columns: 1fr 400px;
+      gap: 56px;
       align-items: center;
-      min-height: 420px;
+      max-width: 1080px;
+      margin: 0 auto;
     }
 
     .hero-badge {
@@ -534,94 +538,98 @@
 
     /* ── FOOTER ── */
     footer {
-      background: #0d1b4b;
-      color: #fff;
-      padding: 48px 40px 32px;
+      background: #f7f9ff;
+      border-top: 2px solid #e8eef8;
+      padding: 56px 40px 0;
     }
 
     .footer-inner {
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
+      grid-template-columns: 1.6fr 1fr 1fr;
       gap: 48px;
-      max-width: 860px;
-      margin: 0 auto 32px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding-bottom: 48px;
       align-items: start;
     }
 
-    .footer-brand .footer-logo {
+    .footer-logo {
       font-size: 22px;
       font-weight: 800;
+      color: #0d1b4b;
       letter-spacing: -0.5px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .footer-tagline {
       font-size: 13px;
-      color: #8896bb;
-      line-height: 1.6;
-      max-width: 320px;
+      color: #666;
+      line-height: 1.7;
+      max-width: 300px;
       margin-bottom: 20px;
     }
 
     .footer-partner-row {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      background: rgba(255,255,255,0.07);
+      gap: 8px;
+      padding: 8px 14px;
+      background: #fff;
+      border: 1px solid #dde6f8;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.1);
-      width: fit-content;
     }
 
-    .footer-partner-row span {
-      font-size: 12px;
-      color: #8896bb;
-    }
+    .footer-partner-row span { font-size: 12px; color: #888; }
 
     .footer-partner-badge {
-      background: #fff;
-      color: #0d4edc;
-      font-size: 12px;
+      background: #0d4edc;
+      color: #fff;
+      font-size: 11px;
       font-weight: 800;
-      padding: 3px 10px;
+      padding: 3px 9px;
       border-radius: 4px;
     }
 
-    .footer-contact h4 {
-      font-size: 14px;
+    .footer-col h4 {
+      font-size: 11px;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #aaa;
       margin-bottom: 16px;
-      color: #fff;
     }
 
-    .footer-contact-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
+    .footer-col a, .footer-col p {
+      display: block;
       font-size: 13px;
-      color: #8896bb;
+      color: #444;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      text-decoration: none;
     }
+    .footer-col a:hover { color: #0d4edc; }
 
-    .footer-contact-icon {
-      width: 32px;
-      height: 32px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 6px;
+    .footer-contact-link {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      flex-shrink: 0;
+      gap: 8px;
+      font-size: 13px;
+      color: #444;
+      margin-bottom: 10px;
+      text-decoration: none;
     }
+    .footer-contact-link:hover { color: #0d4edc; }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 20px;
-      text-align: center;
+      border-top: 1px solid #e8eef8;
+      padding: 18px 0;
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       font-size: 12px;
-      color: #4a5a80;
+      color: #aaa;
     }
 
     /* ── RESPONSIVE ── */
@@ -659,6 +667,7 @@
 
 <!-- ── HERO ── -->
 <div class="hero">
+ <div class="hero-inner">
   <div class="hero-content">
     <div class="hero-badge">Kostenloses Live-Webinar für Spitäler</div>
     <h1>KI-Video im Gesundheitswesen: Wie Spitäler mit Synthesia Schulung, Kommunikation und Patienteninformation neu denken</h1>
@@ -692,6 +701,7 @@
       <p style="font-size:12px;color:#666;">Kantonsspital Baden – Wichtige Informationen zu Ihrer Operation</p>
     </div>
   </div>
+ </div><!-- /hero-inner -->
 </div>
 
 <!-- ── WHY ── -->
@@ -859,28 +869,42 @@
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
+
+    <!-- Brand -->
+    <div>
       <div class="footer-logo">leadway</div>
-      <p class="footer-tagline">Leadway begleitet Schweizer Organisationen bei der Evaluation und Einführung von Synthesia. Wir sind Ihr strategischer Partner für Digitalisierung &amp; KI in der Schweiz.</p>
+      <p class="footer-tagline">Leadway begleitet Schweizer Organisationen bei der Evaluation und Einführung von KI-Video-Lösungen. Strategischer Partner für Digitalisierung &amp; KI in der Schweiz.</p>
       <div class="footer-partner-row">
         <span>in Kooperation mit</span>
         <span class="footer-partner-badge">synthesia</span>
       </div>
     </div>
-    <div class="footer-contact">
-      <h4>Fragen zum Webinar?</h4>
-      <div class="footer-contact-item">
-        <div class="footer-contact-icon">✉</div>
-        <span>webinar@leadway.ch</span>
-      </div>
-      <div class="footer-contact-item">
-        <div class="footer-contact-icon">🌐</div>
-        <span>www.leadway.ch</span>
-      </div>
+
+    <!-- Navigation -->
+    <div class="footer-col">
+      <h4>Webinar</h4>
+      <a href="#">Programm</a>
+      <a href="#">Speaker</a>
+      <a href="#">Anwendungsfälle</a>
+      <a href="#">Anmeldung</a>
     </div>
+
+    <!-- Kontakt -->
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <a href="mailto:webinar@leadway.ch" class="footer-contact-link">
+        <span>✉</span> webinar@leadway.ch
+      </a>
+      <a href="https://leadway.ch" class="footer-contact-link">
+        <span>🌐</span> www.leadway.ch
+      </a>
+      <p style="margin-top:8px; font-size:12px; color:#aaa;">Benjamin Kuster<br>Leadway GmbH, Zürich</p>
+    </div>
+
   </div>
   <div class="footer-bottom">
-    © 2026 Leadway. In Kooperation mit Synthesia.
+    <span>© 2026 Leadway GmbH · Alle Rechte vorbehalten</span>
+    <span><a href="#" style="color:#aaa; text-decoration:none;">Datenschutz</a> · <a href="#" style="color:#aaa; text-decoration:none;">Impressum</a></span>
   </div>
 </footer>
 
