@@ -368,7 +368,7 @@
       letter-spacing: 0.3px;
     }
 
-    /* ── BOTTOM 3-COL ── */
+    /* ── BOTTOM 2-COL ── */
     .bottom-section {
       background: #f7f9ff;
       padding: 64px 40px;
@@ -376,64 +376,50 @@
 
     .bottom-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1.2fr;
-      gap: 48px;
-      max-width: 1040px;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 56px;
+      max-width: 960px;
       margin: 0 auto;
       align-items: start;
     }
 
-    .agenda h2, .audience h2 {
-      font-size: 17px;
+    .agenda h2 {
+      font-size: 20px;
       font-weight: 800;
       color: #0d1b4b;
-      margin-bottom: 20px;
+      margin-bottom: 28px;
     }
 
     .agenda-item {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 14px;
+      gap: 16px;
+      margin-bottom: 20px;
+      background: #fff;
+      border: 1px solid #e8eef8;
+      border-radius: 12px;
+      padding: 16px 18px;
     }
 
-    .step-num {
-      background: #0d4edc;
-      color: #fff;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
+    .step-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 18px;
       flex-shrink: 0;
-      margin-top: 1px;
     }
 
-    .agenda-item p { font-size: 13px; color: #333; line-height: 1.5; }
-
-    .audience-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
+    .agenda-item-text h4 {
       font-size: 13px;
-      color: #333;
+      font-weight: 700;
+      color: #0d1b4b;
+      margin-bottom: 3px;
     }
 
-    .audience-icon {
-      width: 32px;
-      height: 32px;
-      background: #e8f0fe;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
+    .agenda-item-text p { font-size: 12px; color: #777; line-height: 1.5; }
 
     /* ── FAQ ── */
     details {
@@ -688,18 +674,23 @@
     </div>
   </div>
 
-  <!-- Hero image right side -->
+  <!-- Hero: video embed right side -->
   <div class="hero-video-side">
-    <div style="border-radius:14px; overflow:hidden; box-shadow:0 12px 40px rgba(13,78,220,0.18); line-height:0; position:relative;">
-      <img src="hero-image.jpg" alt="Kantonsspital Baden – KI-Video Beispiel"
-        style="width:100%; display:block; border-radius:14px;"
-        onerror="this.parentElement.style.background='linear-gradient(135deg,#1a3a8f,#0d4edc)'; this.parentElement.style.minHeight='260px'; this.style.display='none';" />
-      <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.55));padding:16px 18px 14px;border-radius:0 0 14px 14px;">
-        <div style="font-size:10px;color:rgba(255,255,255,0.7);font-weight:600;letter-spacing:0.3px;">Prof. Dr. med.</div>
-        <div style="font-size:15px;color:#fff;font-weight:700;">Antonio Nocito</div>
-      </div>
+    <div style="font-size:11px;font-weight:600;color:#0d4edc;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:10px;">▶ Beispielvideo ansehen</div>
+    <div style="border-radius:14px;overflow:hidden;box-shadow:0 16px 48px rgba(13,78,220,0.22);background:#000;line-height:0;">
+      <iframe
+        src="https://share.synthesia.io/embeds/videos/734983de-4f22-4442-8cf4-8df9a8bca963"
+        title="Kantonsspital Baden – KI-Video Beispiel"
+        loading="lazy"
+        allowfullscreen
+        allow="encrypted-media; fullscreen;"
+        style="display:block;width:100%;height:240px;border:none;">
+      </iframe>
     </div>
-    <p class="video-caption" style="margin-top:8px;">Kantonsspital Baden – Wichtige Informationen zu Ihrer Operation</p>
+    <div style="display:flex;align-items:center;gap:8px;margin-top:10px;">
+      <div style="width:8px;height:8px;border-radius:50%;background:#0d4edc;flex-shrink:0;"></div>
+      <p style="font-size:12px;color:#666;">Kantonsspital Baden – Wichtige Informationen zu Ihrer Operation</p>
+    </div>
   </div>
 </div>
 
@@ -789,41 +780,44 @@
   </div>
 </div>
 
-<!-- ── BOTTOM 3-COL ── -->
+<!-- ── BOTTOM 2-COL ── -->
 <div class="bottom-section">
   <div class="bottom-grid">
 
     <!-- Agenda -->
     <div class="agenda">
       <h2>Das erwartet Sie im Webinar</h2>
-      <div class="agenda-item"><span class="step-num">1</span><p>Warum KI-Video im Spitalumfeld an Relevanz gewinnt</p></div>
-      <div class="agenda-item"><span class="step-num">2</span><p>Fragen, Diskussion und nächste Schritte</p></div>
-    </div>
 
-    <!-- Audience + FAQ -->
-    <div>
-      <div class="audience">
-        <h2>Für wen ist das Webinar?</h2>
-        <div class="audience-item"><div class="audience-icon">💬</div>Kommunikation</div>
-        <div class="audience-item"><div class="audience-icon">👥</div>HR</div>
-        <div class="audience-item"><div class="audience-icon">📚</div>Learning &amp; Development</div>
-        <div class="audience-item"><div class="audience-icon">🏥</div>Spitalmanagement / Innovation</div>
+      <div class="agenda-item">
+        <div class="step-icon" style="background:#fff3cd;">💡</div>
+        <div class="agenda-item-text">
+          <h4>Warum KI-Video im Spitalumfeld wichtig wird</h4>
+          <p>Aktuelle Trends und konkrete Treiber im Schweizer Gesundheitswesen.</p>
+        </div>
       </div>
 
-      <div style="margin-top:28px;">
-        <h2 style="font-size:17px;font-weight:800;color:#0d1b4b;margin-bottom:14px;">FAQ – Häufige Fragen</h2>
-        <details>
-          <summary>Ist das Webinar kostenlos?</summary>
-          <p>Ja, die Teilnahme ist vollständig kostenlos. Sie erhalten nach der Anmeldung alle Zugangsdaten per E-Mail.</p>
-        </details>
-        <details>
-          <summary>Ist das auch für Schweizer Spitäler relevant?</summary>
-          <p>Absolut. Das Webinar ist speziell auf die Anforderungen Schweizer Gesundheitsorganisationen ausgerichtet.</p>
-        </details>
-        <details>
-          <summary>Kann man konkrete Use Cases diskutieren?</summary>
-          <p>Ja, am Ende des Webinars gibt es eine offene Fragerunde für konkrete Use Cases.</p>
-        </details>
+      <div class="agenda-item">
+        <div class="step-icon" style="background:#dce8ff;">🎬</div>
+        <div class="agenda-item-text">
+          <h4>Live-Einblick in Synthesia</h4>
+          <p>Plattform-Demo: Videos erstellen, übersetzen und ausrollen in Minuten.</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="step-icon" style="background:#d0f0ea;">🏥</div>
+        <div class="agenda-item-text">
+          <h4>Praxisbeispiel Kantonsspital Baden</h4>
+          <p>Wie ein Schweizer Spital KI-Video bereits heute einsetzt.</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="step-icon" style="background:#ede5ff;">💬</div>
+        <div class="agenda-item-text">
+          <h4>Fragen &amp; nächste Schritte</h4>
+          <p>Offene Diskussion und individuelle Einführungsoptionen.</p>
+        </div>
       </div>
     </div>
 
